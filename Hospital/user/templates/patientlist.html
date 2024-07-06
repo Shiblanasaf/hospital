@@ -1,0 +1,28 @@
+{% extends 'navbar.html' %}
+
+{% block index %}
+<h1>Patient List</h1>
+<table class="table table-dark">
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>place</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th></th>
+    </tr>
+    {% for i in patients %}
+    <tr>
+        <td>{{i.name}}</td>
+        <td>{{i.age}}</td>
+        <td>{{i.place}}</td>
+        <td>{{i.phone}}</td>
+        <td>{{i.email}}</td>
+        <td>
+            <a href="{% url 'epat' i.id %}"class="btn btn-warning">Edit</a>
+            <a href="{% url 'pdel' i.id %}" class="btn btn-danger">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock index %}

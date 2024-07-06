@@ -1,0 +1,43 @@
+{% extends 'navbar.html' %}
+{% block index %}
+{% if messages %}
+{% for i in messages %}
+{% if i.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+<div class="alert alert-success alert-dismissible">
+  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  <strong>{{i}}</strong> 
+</div>
+{% endif %}
+{% if i.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+<div class="alert alert-success alert-dismissible">
+  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  <strong>{{i}}</strong> 
+</div>
+{% endif %}
+{% endfor %}
+{% endif %}
+
+<div class="row">
+    {% for i in med %}
+    <div class="card shadow my-3 mx-2" style="width: 18rem;">
+      {% if i.medicine_image %}
+          <img src="{{i.medicine_image}}" alt="...">
+      {% else %}
+          <img src="https://static2.bigstockphoto.com/5/6/3/large2/365322934.jpg" alt="logo">
+      {% endif %}
+    
+            <div class="card-body">
+              <h5 class="card-title">{{i.mname}}</h5>
+              <p class="card-text">Price:{{i.price}}</p>
+              <p class="card-text">Expiry_Date:{{i.expiry}}</p>
+              <p class="card-text">Pharma_Company:{{i.pharma_company}}</p>
+              <div class="d-flex justify-content-between">
+                <a href="{% url 'mdel' i.id %}" class="btn btn-danger">Delete</a>
+                <a href="{% url 'emed' i.id %}" class="btn btn-warning">Edit</a>
+              </div>
+            </div>
+    </div>
+
+    {% endfor %}
+</div>
+{% endblock index %}

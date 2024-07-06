@@ -1,0 +1,31 @@
+{% extends 'nav.html' %}
+{% block nav %}
+       <div class="m-5 border shadow p-5">
+           <h1 class="text-info">Register</h1>
+           <form action="" method="post">
+              {% csrf_token %}
+              <label for="fn" class="d-block">Firstname:
+                <input id="fn" type="text" placeholder="Firstname" name="fname" class="form-control">
+              </label>
+              <label for="ln" class="d-block">Lastname:
+                <input id="ln" type="text" placeholder="Lastname" name="lname" class="form-control">
+              </label>
+              <label for="em" class="d-block">Email id:
+                <input id="em" type="email" placeholder="Email id" name="email" class="form-control">
+              </label>
+              <label for="un" class="d-block">Username:
+                <input id="un" type="text" placeholder="Username" name="uname" class="form-control">
+              </label>
+              <label for="pw" class="d-block">Password:
+                <input id="pw" type="password" placeholder="Password" name="pswd" class="form-control">
+              </label>
+              <button class="btn btn-success">Submit</button>
+
+         
+
+           </form>
+
+       </div>
+
+{% endblock nav %}
+    

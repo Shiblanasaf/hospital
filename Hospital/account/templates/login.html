@@ -1,0 +1,24 @@
+{% extends 'nav.html' %}
+
+{% block nav %}
+        <div class="m-5 border shadow p-5" >
+            <h1 class="text-info">Login</h1>
+            <form action="" method="post">
+                {% csrf_token %}
+                <label for="un" class="d-block">Username:
+                    <input id="un" type="text" placeholder="Username" name="uname" class="form-control">
+
+                </label>
+                <label for="pw" class="d-block">Password:
+                    <input id="pw" type="password" placeholder="Password" name="pswd" class="form-control">
+
+                </label>
+                <button class="btn btn-success">Login</button>
+                
+                
+            </form>
+
+        </div>
+        
+{% endblock nav %}
+   
